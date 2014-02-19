@@ -1,6 +1,6 @@
-#Aplicación
+#SeriesPlus
 
-Es un Proyecto desarrollado en Python utilizando una API web
+SeriesPlus es un Proyecto desarrollado en Python utilizando una API web
 
 #Descripción
 
