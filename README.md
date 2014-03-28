@@ -1,11 +1,11 @@
-#SeriesPlus
+#TuitFighter
 
-SeriesPlus es un Proyecto desarrollado en Python utilizando una API web
+TuitFighter es un Proyecto desarrollado en Python utilizando una API web
 
 #Descripción
 
-La aplicación sería una web donde poder tener las series o peliculas que sigues en ese momento de una manera organizada y sencilla.
+La aplicación sería una web donde poder escribir dos palabras y las mas escrita en twitter será la ganadora.
 
 #API utilizada
 
-Esta aplicación utiliza la [API](http://api.series.ly/docs/) de series.ly.
+Esta aplicación utiliza la [API](https://dev.twitter.com/) de Twitter.
