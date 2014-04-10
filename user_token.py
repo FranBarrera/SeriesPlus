@@ -46,7 +46,7 @@ for i in seriesmost['series']:
 
 @route('/')
 def test():
-	return template('template.tpl',nombres=nombres,mostnombre=nombres_mostseen)
+	return template('template.tpl',nombres=nombres,nombres_mostseen=nombres_mostseen)
 
 run(host='localhost', port=8080)
 
