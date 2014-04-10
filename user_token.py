@@ -1,7 +1,7 @@
 import requests
 from getpass import getpass
 import json
-from bottle import route, run
+from bottle import route, run, template
 
 
 
@@ -31,14 +31,12 @@ def fseriesfollowing():
 prueba = fseriesfollowing()
 
 
-from bottle import route, run, debug, request
 
-@route('/')
-def test():
-	return prueba
+@route('/hello/<name>')
+def index(name):
+    return template('<b>Hello {{name}}</b>!', name=name)
 
-run()
-
+run(host='localhost', port=8080)
 
 
 
