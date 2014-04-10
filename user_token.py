@@ -34,16 +34,11 @@ for i in prueba['series']:
 	nombres.append(i['name'])
 print nombres
 
-@route('/hello/<name>')
-def index(name):
-	return template('template.tpl', name=nombres)
+@route('/')
+def test():
+	return template('template.tpl',nombres=nombres)
 
 run(host='localhost', port=8080)
-
-
-
-
-
 
 fichero.close()
 
