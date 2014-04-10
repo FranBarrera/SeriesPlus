@@ -4,9 +4,9 @@ import json
 from bottle import route, run, template
 
 
-
 fichero = open('auth.txt','r')
 auth_token = fichero.readline()
+respuesta = open('most_seen.txt','w')
 fi_usertoken = open('user_token.txt','w')
 
 
@@ -28,11 +28,21 @@ def fseriesfollowing():
 	jresp = json.loads(r_sf.text)
 	return jresp
 
-prueba = fseriesfollowing()
+seriesfollow = fseriesfollowing()
 nombres = []
-for i in prueba['series']:
+for i in seriesfollow['series']:
 	nombres.append(i['name'])
-print nombres
+
+def fseriesmostseen():
+	q = {'auth_token':auth_token}
+	r = requests.get('http://api.series.ly/v2/media/most_seen',params=q)
+	jresp = json.loads(r.text)
+	return jresp
+
+seriesmost = fseriesmostseen()
+nombres_mostseen = []
+for i in seriesmost['series']:
+	nombres_mostseen.append(i['name'])
 
 @route('/')
 def test():
