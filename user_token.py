@@ -35,8 +35,7 @@ from bottle import route, run, debug, request
 
 @route('/')
 def test():
-	for i in prueba:
-		return i['name']
+	return prueba
 
 run()
 
