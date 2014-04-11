@@ -4,8 +4,6 @@ import json
 fichero = open('auth.txt','r')
 auth_token = fichero.readline()
 respuesta = open('most_seen.txt','w')
-#fi_usertoken = open('user_token.txt','w')
-
 
 def fuser_token(username, password):
 	q = {'auth_token':auth_token,'username':username,'password':password,'remember':'1'}
