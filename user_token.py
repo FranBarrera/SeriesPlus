@@ -23,8 +23,7 @@ def fuser_token(username, password):
 	else:
 		return ''	
 
-def fseriesfollowing():
-	user_token = fuser_token()
+def fseriesfollowing(user_token):
 	q_sf = {'auth_token':auth_token,'user_token':user_token}
 	r_sf = requests.get('http://api.series.ly/v2/user/media/series',params=q_sf)
 	jresp = json.loads(r_sf.text)
@@ -61,18 +60,18 @@ def login():
 def do_login():
     username = request.forms.get('username')
     password = request.forms.get('password')
-	token1 = fuser_token(username,password)
+    token1 = fuser_token(username,password)
     if len(token1) > 0:
         return "<p>Your login information was correct.</p>"
     else:
         return "<p>Login failed.</p>"
-
-
-
-@route('/template')
-def test():
-	return template('template.tpl',nombres=nombres,nombres_mostseen=nombres_mostseen)
 run(host='localhost', port=8080)
+
+
+#@route('/template')
+#def test():
+#	return template('template.tpl',nombres=nombres,nombres_mostseen=nombres_mostseen)
+
 
 
 
