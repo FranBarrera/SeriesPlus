@@ -8,12 +8,20 @@ respuesta = open('most_seen.txt','w')
 def fuser_token(username, password):
 	q = {'auth_token':auth_token,'username':username,'password':password,'remember':'1'}
 	r = requests.get('http://api.series.ly/v2/user/user_token',params=q)
-	if r.status_code == 200:
+	if r.text == '{"errorMessage":"User not found.","error":31}':
+		return ''
+	else:
 		jresp = json.loads(r.text)
 		token = jresp['user_token']
 		return token
-	else:
-		return ''	
+
+
+	# if r.status_code == 200:
+	# 	jresp = json.loads(r.text)
+	# 	token = jresp['user_token']
+	# 	return token
+	# else:
+	# 	return ''	
 
 # def fseriesfollowing(user_token):
 # 	q_sf = {'auth_token':auth_token,'user_token':user_token}
