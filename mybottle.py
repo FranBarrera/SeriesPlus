@@ -1,6 +1,6 @@
 from bottle import route, run, template, get, post, request, response, redirect
 from user_token import fuser_token
-from user_token import fseriesfollowing
+from user_token import fseriesfollowing,full_info
 
 
 @get('/main') # or @route('/login')
@@ -9,7 +9,9 @@ def le_main():
 
 @get('/serie/:idm')
 def le_serie(idm):
+    mediaType = 1
     return template('serie.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))
+
 @get('/login') # or @route('/login')
 def login():
     return '''
