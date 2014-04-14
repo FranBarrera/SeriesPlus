@@ -6,14 +6,14 @@
 		<h1> Series Following </h1>
 		%for data in data_raw:
 			%if data!= 'error':
-		<h2> {{data}} </h2>
-		<ul>
-			%for media in data_raw[data]:
-				<li>{{media['name']}}</li>
-			%end
-		</ul>
+				%if len(data_raw[data]) > 0:
+					<h2> {{data}} </h2>
+					<ul>
+						%for media in data_raw[data]:
+							<li>{{media['name']}}</li>
+						%end
+					</ul>
+				%end
 		%end
-			
 	</body>
-
 </html>
