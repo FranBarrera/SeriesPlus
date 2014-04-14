@@ -9,7 +9,7 @@ def le_main():
 
 @get('/serie/:idm')
 def le_serie(idm):
-    return template('serie.tpl',data_raw=)
+    return template('serie.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))
 @get('/login') # or @route('/login')
 def login():
     return '''
