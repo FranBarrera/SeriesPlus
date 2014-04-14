@@ -11,5 +11,10 @@
 		%end
 			%season_variable = 'season_'+season_number
 			<h3>Temporada {{i}}</h3>
+			<ul>
+				%for episodes in data_raw['seasons_episodes'][season_variable]:
+					<li>{{episodes['name']}}</li>
+				%end
+			</ul>
 	</body>
 </html>
