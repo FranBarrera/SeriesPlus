@@ -5,6 +5,7 @@ fichero = open('auth.txt','r')
 auth_token = fichero.readline()
 respuesta = open('most_seen.txt','w')
 nombres = []
+
 def fuser_token(username, password):
 	q = {'auth_token':auth_token,'username':username,'password':password,'remember':'1'}
 	r = requests.get('http://api.series.ly/v2/user/user_token',params=q)
@@ -16,8 +17,8 @@ def fuser_token(username, password):
 		return token
 
 
-def fseriesfollowing(token):
- 	q_sf = {'auth_token':auth_token,'user_token':token}
+def fseriesfollowing(user_token):
+ 	q_sf = {'auth_token':auth_token,'user_token':user_token}
  	r_sf = requests.get('http://api.series.ly/v2/user/media/series',params=q_sf)
  	jresp = json.loads(r_sf.text)
  	for i in jresp['series']:
