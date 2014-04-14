@@ -17,7 +17,7 @@ def fuser_token(username, password):
 
 def fseriesfollowing(user_token):
  	q_sf = {'auth_token':auth_token,'user_token':user_token}
- 	r_sf = requests.get('http://api.series.ly/v2/user/media/series',params=q_sf)
+ 	r_sf = requests.get('http://api.series.ly/v2/user/media/pending',params=q_sf)
  	jresp = json.loads(r_sf.text)
  	return jresp
 
