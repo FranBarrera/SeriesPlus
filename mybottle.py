@@ -7,7 +7,9 @@ from user_token import fseriesfollowing
 def le_main():
     return template('template.tpl',data_raw=fseriesfollowing(request.get_cookie("user_token")))
 
-
+@get('/serie/:idm')
+def le_serie(idm):
+    return template('serie.tpl',data_raw=)
 @get('/login') # or @route('/login')
 def login():
     return '''

@@ -21,30 +21,11 @@ def fseriesfollowing(user_token):
  	jresp = json.loads(r_sf.text)
  	return jresp
 
- #seriesfollow = fseriesfollowing()
- #nombres = []
- #for i in seriesfollow['series']:
-# 	nombres.append(i['name'])
-
-# def fseriesmostseen():
-# 	q = {'auth_token':auth_token}
-# 	r = requests.get('http://api.series.ly/v2/media/most_seen',params=q)
-# 	jresp = json.loads(r.text)
-# 	return jresp
-
-# seriesmost = fseriesmostseen()
-# nombres_mostseen = []
-# for i in seriesmost['series']:
-# 	nombres_mostseen.append(i['name'])
-
-
-
-#@route('/template')
-#def test():
-#	return template('template.tpl',nombres=nombres,nombres_mostseen=nombres_mostseen)
-
-
-
+def full_info(user_token,idm,mediaType)
+	q_sf = {'auth_token':auth_token,'user_token':user_token,'idm':idm,'mediaType':mediaType
+	r_sf = requests.get('http://api.series.ly/v2/media/full_info',params=q_sf)
+	jresp = json.loads(r_sf.text)
+	return jresp
 
 fichero.close()
 
