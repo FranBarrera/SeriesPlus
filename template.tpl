@@ -9,10 +9,11 @@
 		<h2> {{data}} </h2>
 		<ul>
 			%for media in data_raw[data]:
-			<li>{{media['name']}}</li>
+				<li>{{media['name']}}</li>
+			%end
 		</ul>
 		%end
-			%end
+			
 	</body>
 
 </html>
