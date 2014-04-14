@@ -4,11 +4,15 @@
 	</head>
 	<body>
 		<h1> Series Following </h1>
-		%for nombre in nombres:
+		%for data in data_raw:
+			%if data!= 'error':
+		<h2> {{data}} </h2>
 		<ul>
-			<li> {{nombre}} </li>
+			%for media in data_raw[data]:
+			<li>{{media}}</li>
 		</ul>
 		%end
+			%end
 	</body>
 
 </html>

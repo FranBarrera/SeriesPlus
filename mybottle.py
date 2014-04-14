@@ -2,11 +2,10 @@ from bottle import route, run, template, get, post, request, response, redirect
 from user_token import fuser_token
 from user_token import fseriesfollowing
 
-nombres = []
 
 @get('/main') # or @route('/login')
 def le_main():
-    return template('template.tpl',nombres=fseriesfollowing(request.get_cookie("user_token")))
+    return template('template.tpl',data_raw=fseriesfollowing(request.get_cookie("user_token")))
 
 
 @get('/login') # or @route('/login')
