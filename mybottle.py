@@ -2,6 +2,10 @@ from bottle import route, run, template, get, post, request, response, redirect
 from user_token import fuser_token
 from user_token import fseriesfollowing,full_info
 
+@get('/peliculas/:idm')
+def le_pelicula(idm):
+    mediaType = 2
+    return template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))
 
 @get('/main') # or @route('/login')
 def le_main():
@@ -12,10 +16,10 @@ def le_serie(idm):
     mediaType = 1
     return template('serie.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))
 
-@get('/login') # or @route('/login')
+@get('/') # or @route('/')
 def login():
     return '''
-        <form action="/login" method="post">
+        <form action="/" method="post">
             Username: <input name="username" type="text" />
             Password: <input name="password" type="password" />
             <input value="Login" type="submit" />
@@ -23,7 +27,7 @@ def login():
     '''
 
 
-@post('/login') # or @route('/login', method='POST')
+@post('/') # or @route('/', method='POST')
 def do_login():
     username = request.forms.get('username')
     password = request.forms.get('password')
