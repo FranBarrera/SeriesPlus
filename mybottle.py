@@ -2,10 +2,20 @@ from bottle import route, run, template, get, post, request, response, redirect
 from user_token import fuser_token
 from user_token import fseriesfollowing,full_info
 
+@get('/tv/:idm')
+def le_pelicula(idm):
+    mediaType = 4
+    return template('tv.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))
+
+@get('/docus/:idm')
+def le_pelicula(idm):
+    mediaType = 3
+    return template('docus.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))
+
 @get('/peliculas/:idm')
 def le_pelicula(idm):
     mediaType = 2
-    return template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))
+    return template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))  
 
 @get('/main') # or @route('/login')
 def le_main():
