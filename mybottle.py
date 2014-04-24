@@ -1,6 +1,20 @@
 from bottle import route, run, template, get, post, request, response, redirect
 from user_token import fuser_token
-from user_token import fseriesfollowing,full_info
+from user_token import fseriesfollowing,full_info,fbusqueda
+
+@get('/main/busqueda') # or @route('/')
+def login():
+    return '''
+        <form method='post' action="/busqueda"/>
+        <input type = 'text' name='busqueda' size='20'/>
+        <input type = 'submit' value='Buscar'/>
+        </form>
+    '''
+
+@post('/busqueda')
+def le_busqueda():
+    v_busqueda = request.forms.get('busqueda')
+    return template('busqueda.tpl',data_raw=fbusqueda(v_busqueda))
 
 @get('/tv/:idm')
 def le_pelicula(idm):
@@ -36,7 +50,6 @@ def login():
         </form>
     '''
 
-
 @post('/') # or @route('/', method='POST')
 def do_login():
     username = request.forms.get('username')
@@ -47,7 +60,7 @@ def do_login():
         response.set_header('Set-Cookie', 'user_token='+user_token)
         return redirect('/main')
     else:
-        return "<p>Login failed.</p>"
+        return "<p>Login Incorrecto.<a href=\"/\">Intentar de nuevo </a</p>"
 run(host='localhost', port=8080)
 
 

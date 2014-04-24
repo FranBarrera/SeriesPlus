@@ -3,6 +3,7 @@
 	<head>
 	</head>
 	<body>
+		
 		<h1> Series Following </h1>
 		%for data in data_raw:
 			%if data!= 'error':
@@ -26,6 +27,7 @@
 					</ul>
 				%end
 		%end
+
 	</body>
 </html>
 
