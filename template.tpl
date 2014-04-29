@@ -3,7 +3,10 @@
 	<head>
 	</head>
 	<body>
-		
+		<form method='post' action="/busqueda"/>
+        <input type = 'text' name='busqueda' size='20'/>
+        <input type = 'submit' value='Buscar'/>
+        </form>
 		<h1> Mi SeriesPlus </h1>
 		%for data in data_raw:
 			%if data!= 'error':

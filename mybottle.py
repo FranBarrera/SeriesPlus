@@ -13,14 +13,6 @@ def auth_reload():
     auth = jtemp["auth_token"]
     fichero.write(auth)
 
-@get('/main/busqueda') # or @route('/')
-def login():
-    return '''
-        <form method='post' action="/busqueda"/>
-        <input type = 'text' name='busqueda' size='20'/>
-        <input type = 'submit' value='Buscar'/>
-        </form>
-    '''
 
 @post('/busqueda')
 def le_busqueda():
