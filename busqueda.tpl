@@ -2,6 +2,8 @@
 	<head>
 	</head>
 	<body>
-			<p> {{data_raw['response']['results'][0]['object']['name']}} </p>
+			 %for i in data_raw['response']['results']:
+			 	<p>{{i['object']['name']}}</p>
+			 %end
 	</body>
 </html>
