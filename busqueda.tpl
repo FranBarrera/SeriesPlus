@@ -6,6 +6,7 @@
 		%for i in data_raw['response']['results']:
 			 %if i['type'] <= 4:
 			 	<p>{{i['object']['name']}}</p>
+				<p>{{i['object']['rating']}}</p>
 			 %end
 		%end
 	</body>
