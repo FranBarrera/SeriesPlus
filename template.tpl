@@ -4,7 +4,7 @@
 	</head>
 	<body>
 		
-		<h1> Series Following </h1>
+		<h1> Siguiendo </h1>
 		%for data in data_raw:
 			%if data!= 'error':
 				%if len(data_raw[data]) > 0:
@@ -22,7 +22,7 @@
 						%elif media['mediaType'] == 4:
 							%tipo = 'tv'
 						%end
-							<li><a href="{{tipo}}/{{media['idm']}}">{{media['name']}}</a></li>
+							<td><a href="{{tipo}}/{{media['idm']}}"><img src="{{media['img']}}"/></a></td>
 						%end
 					</ul>
 				%end
