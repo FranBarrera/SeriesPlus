@@ -1,6 +1,6 @@
 import requests
 import json
-from bottle import route, default_app, run, template, get, post, request, response, redirect
+from bottle import route, run, template, get, post, request, response, redirect
 from user_token import fuser_token
 from user_token import fseriesfollowing,full_info,fbusqueda
 
@@ -64,21 +64,24 @@ def do_login():
         return redirect('/main')
     else:
         return "<p>Login Incorrecto.<a href=\"/\">Intentar de nuevo </a</p>"
+
+run(host='localhost', port=8080)
+
 # This must be added in order to do correct path lookups for the views
-import os
-from bottle import TEMPLATE_PATH
+# import os
+# from bottle import TEMPLATE_PATH
 
-ON_OPENSHIFT = False
-if os.environ.has_key('OPENSHIFT_REPO_DIR'):
-    ON_OPENSHIFT = True
+# ON_OPENSHIFT = False
+# if os.environ.has_key('OPENSHIFT_REPO_DIR'):
+#     ON_OPENSHIFT = True
 
-if ON_OPENSHIFT:
-    TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_HOMEDIR'], 
-                                      'app-root/repo/wsgi/views/'))
+# if ON_OPENSHIFT:
+#     TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_HOMEDIR'], 
+#                                       'app-root/repo/wsgi/views/'))
     
-    application=default_app()
-else:
-    run(host='localhost', port=8080, debug=True)
+#     application=default_app()
+# else:
+#   run(host='localhost', port=8080, debug=True)
 
 
 
