@@ -92,6 +92,8 @@ body form input[type=text], body form input[type=password] {
 
     <body>
         <div class="col-md-12 header">SeriesPlus</div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
                 <form action="/" method="post">
                     <div><span>Username:</span><input name="username" placeholder="Usuario" type="text" /></div>
                     <div><span>Password:</span><input name="password" placeholder="Contraseña" type="password" /></div>
