@@ -17,31 +17,31 @@ from user_token import fseriesfollowing,full_info,fbusqueda
 @post('/busqueda')
 def le_busqueda():
     v_busqueda = request.forms.get('busqueda')
-    return template('busqueda.tpl',data_raw=fbusqueda(v_busqueda))
+    return template('header.tpl'),template('busqueda.tpl',data_raw=fbusqueda(v_busqueda)),template('footer.tpl')
 
 @get('/tv/:idm')
 def le_pelicula(idm):
     mediaType = 4
-    return template('tv.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))
+    return template('header.tpl'),template('tv.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl')
 
 @get('/docus/:idm')
 def le_pelicula(idm):
     mediaType = 3
-    return template('docus.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))
+    return template('header.tpl'),template('docus.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl')
 
 @get('/peliculas/:idm')
 def le_pelicula(idm):
     mediaType = 2
-    return template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))  
+    return template('header.tpl'),template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl') 
 
 @get('/main') # or @route('/login')
 def le_main():
-    return template('template.tpl',data_raw=fseriesfollowing(request.get_cookie("user_token")))
+    return template('header.tpl'),template('template.tpl',data_raw=fseriesfollowing(request.get_cookie("user_token"))),template('footer.tpl')
 
 @get('/serie/:idm')
 def le_serie(idm):
     mediaType = 1
-    return template('serie.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))
+    return template('header.tpl'),template('serie.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl')
 
 @get('/') # or @route('/')
 def login():
