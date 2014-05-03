@@ -45,13 +45,7 @@ def le_serie(idm):
 
 @get('/') # or @route('/')
 def login():
-    return '''
-        <form action="/" method="post">
-            Username: <input name="username" type="text" />
-            Password: <input name="password" type="password" />
-            <input value="Login" type="submit" />
-        </form>
-    '''
+    return template('login.tpl')
 
 @post('/') # or @route('/', method='POST')
 def do_login():
