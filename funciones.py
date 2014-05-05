@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import requests
 import json
+import os
 from collections import OrderedDict
 
-fichero = open('auth.txt','r')
+fichero = open(os.path.join(os.path.dirname(__file__),"auth.txt"),'r')
 auth_token = fichero.readline()
 
 def fuser_token(username, password):

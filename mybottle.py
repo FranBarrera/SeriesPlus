@@ -1,14 +1,14 @@
 import requests
 import json
 import os
-from bottle import route, run, template, get, post, request, response, redirect, TEMPLATE_PATH
+from bottle import route, run, template, get, post, request, response, redirect, default_app, TEMPLATE_PATH
 from funciones import fuser_token
 from funciones import fseriesfollowing,full_info,fbusqueda
 
 @get('/auth')
 def auth_reload():
-    fichero = open('auth.txt','w')
-    fclave = open('clave.txt','r')
+    fichero = open(os.path.join(os.path.dirname(__file__),"auth.txt"),'w')
+    fclave = open(os.path.join(os.path.dirname(__file__),"clave.txt"),'r')
     clave = fclave.readline()
     q = {"id_api":'2132',"secret":clave}
     r = requests.get('http://api.series.ly/v2/auth_token',params=q)
