@@ -4,15 +4,16 @@ from bottle import route, run, template, get, post, request, response, redirect
 from user_token import fuser_token
 from user_token import fseriesfollowing,full_info,fbusqueda
 
-# @get('/auth')
-# def auth_reload():
-#     fichero = open('auth.txt','w')
-#     q = {"id_api":'',"secret":''}
-#     r = requests.get('http://api.series.ly/v2/auth_token',params=q)
-#     jtemp = json.loads(r.text)
-#     auth = jtemp["auth_token"]
-#     fichero.write(auth)
-
+@get('/auth')
+def auth_reload():
+    fichero = open('auth.txt','w')
+    fclave = open('clave.txt','r')
+    clave = fclave.readline()
+    q = {"id_api":'2132',"secret":clave}
+    r = requests.get('http://api.series.ly/v2/auth_token',params=q)
+    jtemp = json.loads(r.text)
+    auth = jtemp["auth_token"]
+    fichero.write(auth)
 
 @post('/busqueda')
 def le_busqueda():
