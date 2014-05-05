@@ -25,7 +25,7 @@ def fseriesfollowing(user_token):
 def full_info(user_token,idm,mediaType):
 	q_sf = {'auth_token':auth_token,'user_token':user_token,'idm':idm,'mediaType':mediaType}
 	r_sf = requests.get('http://api.series.ly/v2/media/full_info',params=q_sf)
-	jresp = json.loads(r_sf.text)
+	jresp = json.loads(r_sf.text,object_pairs_hook=OrderedDict)
 	return jresp
 
 def fbusqueda(v_busqueda):
