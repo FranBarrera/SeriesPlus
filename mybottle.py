@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-from bottle import route, run, template, get, post, request, response, redirect, default_app, TEMPLATE_PATH
+from bottle import route, run, template, get, post, request, response, redirect, default_app, static_file, TEMPLATE_PATH
 from funciones import fuser_token
 from funciones import fseriesfollowing,full_info,fbusqueda
 
@@ -15,6 +15,10 @@ def auth_reload():
     jtemp = json.loads(r.text)
     auth = jtemp["auth_token"]
     fichero.write(auth)
+
+@route('/static/<filename>')
+def server_static(filename):
+  return static_file(filename, root='./static')
 
 @post('/busqueda')
 def le_busqueda():
