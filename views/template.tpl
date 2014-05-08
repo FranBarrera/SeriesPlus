@@ -1,7 +1,3 @@
-<form method='post' action="/busqueda"/>
-<input type = 'text' name='busqueda' size='20'/>
-<input type = 'submit' value='Buscar'/>
-</form>
 <h1> Mi SeriesPlus </h1>
 %for data in data_raw:
 	%if data!= 'error':
@@ -26,7 +22,7 @@
 			<h2> {{tipo2}} </h2>
 			<ul>
 				%for media in data_raw[data]:
-					<td><a href="{{tipo}}/{{media['idm']}}"><img src="{{media['img']}}"/></a></td>
+					<a href="/{{tipo}}/{{media['idm']}}"><img src="{{media['img']}}"/></a>
 				%end
 			</ul>
 		%end

@@ -21,3 +21,10 @@
     </head>
 
     <body>
+        <ul>
+            <li><a href="/user">{{username}}</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/series">Series</a></li>
+            <li><a href="/pelis">Pelis</a></li>
+            <li><a href="/salir">Salir</a></li>
+        </ul>

@@ -42,7 +42,7 @@ def le_pelicula(idm):
 
 @get('/main') # or @route('/login')
 def le_main():
-    return template('header.tpl'),template('template.tpl',data_raw=fseriesfollowing(request.get_cookie("user_token"))),template('footer.tpl')
+    return template('header.tpl',username=request.get_cookie("user")),template('template.tpl',data_raw=fseriesfollowing(request.get_cookie("user_token"))),template('footer.tpl')
 
 @get('/serie/:idm')
 def le_serie(idm):
@@ -51,19 +51,26 @@ def le_serie(idm):
 
 @get('/') # or @route('/')
 def login():
-    return template('login.tpl')
+    if request.get_cookie("user_token"):
+        return redirect('/main')
+    else:
+        return template('login.tpl')
+
 
 @post('/') # or @route('/', method='POST')
 def do_login():
-    username = request.forms.get('username')
-    password = request.forms.get('password')
-    user_token = fuser_token(username,password)
-    if len(user_token) > 0:
-        response.set_header('Set-Cookie', 'user='+username)
-        response.set_header('Set-Cookie', 'user_token='+user_token)
+    if request.get_cookie("user_token"):
         return redirect('/main')
     else:
-        return "<p>Login Incorrecto.<a href=\"/\">Intentar de nuevo </a</p>"
+        username = request.forms.get('username')
+        password = request.forms.get('password')
+        user_token = fuser_token(username,password)
+        if len(user_token) > 0:
+            response.set_header('Set-Cookie', 'user='+username)
+            response.set_header('Set-Cookie', 'user_token='+user_token)
+            return redirect('/main')
+        else:
+            return "<p>Login Incorrecto.<a href=\"/\">Intentar de nuevo </a</p>"
 
 
 
