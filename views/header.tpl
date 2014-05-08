@@ -16,6 +16,7 @@
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="//use.edgefonts.net/lato:n1,i1,n3,i3,n4,i4,n7,i7,n9,i9.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+         <link href="/static/style.css" rel="stylesheet">
 
         
     </head>

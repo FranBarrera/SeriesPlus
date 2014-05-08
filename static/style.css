@@ -1,0 +1,79 @@
+/* line 4, ../sass/style.scss */
+body {
+  font-family: lato;
+  font-weight: 300;
+  background: #16a085;
+  color: white;
+  padding-top: 80px;
+}
+/* line 10, ../sass/style.scss */
+body .header {
+  border: none;
+  background: rgba(86, 185, 165, 0.91);
+  box-shadow: none;
+}
+/* line 15, ../sass/style.scss */
+body .header .navbar-inner .col-md-12 {
+  padding: 0 20px;
+}
+/* line 18, ../sass/style.scss */
+body .header .navbar-inner .loading_bar {
+  height: 5px;
+  width: 0%;
+  background: white;
+  position: fixed;
+  top: 0;
+}
+/* line 27, ../sass/style.scss */
+body .header .navbar-header a, body .header .navbar-header a:hover {
+  color: white;
+  font-weight: 400;
+  font-size: 22px;
+  padding: 18px 10px;
+  display: block;
+  height: 100%;
+  text-shadow: none;
+}
+/* line 38, ../sass/style.scss */
+body .header .navbar-left a {
+  color: #FFF;
+  font-size: 16px;
+  padding: 18px 15px;
+  font-weight: 400;
+}
+/* line 43, ../sass/style.scss */
+body .header .navbar-left a:hover, body .header .navbar-left a.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+/* line 50, ../sass/style.scss */
+body .search {
+  paddign-left: 15px;
+}
+/* line 52, ../sass/style.scss */
+body .search input {
+  border: none;
+  outline: none;
+}
+/* line 55, ../sass/style.scss */
+body .search input[type=submit] {
+  margin-top: 15px;
+  box-shadow: none;
+  background: white;
+  color: #1abc9c;
+  text-shadow: none;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+/* line 63, ../sass/style.scss */
+body .search input[type=submit]:hover, body .search input[type=submit]:active {
+  background: #16a085;
+  color: white;
+}
+/* line 68, ../sass/style.scss */
+body .search input[type=text], body .search input[type=password] {
+  margin-bottom: 10px;
+  padding: 5px 15px;
+  color: grey;
+  font-weight: 300;
+}
