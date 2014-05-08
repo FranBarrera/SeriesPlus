@@ -68,6 +68,8 @@ def do_login():
         if len(user_token) > 0:
             response.set_header('Set-Cookie', 'user='+username)
             response.set_header('Set-Cookie', 'user_token='+user_token)
+            response.set_header('Set-Cookie', 'user='+username)
+            response.set_header('Set-Cookie', 'user_token='+user_token)
             return redirect('/main')
         else:
             return "<p>Login Incorrecto.<a href=\"/\">Intentar de nuevo </a</p>"

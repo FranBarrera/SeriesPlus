@@ -1,4 +1,3 @@
-<h1> Mi SeriesPlus </h1>
 %for data in data_raw:
 	%if data!= 'error':
 		%if len(data_raw[data]) > 0:
@@ -21,8 +20,16 @@
 			%end
 			<h2> {{tipo2}} </h2>
 			<ul>
+				<div class="col-md-12 show_caratulas">
 				%for media in data_raw[data]:
-					<a href="/{{tipo}}/{{media['idm']}}"><img src="{{media['img']}}"/></a>
+					<a href="/{{tipo}}/{{media['idm']}}" class="col-md-2">
+						<div class="caratula">
+							<span class="leyenda">
+								<div class="info">{{media['name']}}<br>{{media['year']}}</div>
+							</span>
+							<img src="{{media['img']}}"/>
+						</div>
+					</a>
 				%end
 			</ul>
 		%end

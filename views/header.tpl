@@ -21,10 +21,36 @@
     </head>
 
     <body>
-        <ul>
-            <li><a href="/user">{{username}}</a></li>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/series">Series</a></li>
-            <li><a href="/pelis">Pelis</a></li>
-            <li><a href="/salir">Salir</a></li>
-        </ul>
+        <nav class="header navbar navbar-default navbar-fixed-top large" role="navigation" style="">
+            <div class="navbar-inner">
+                <div class="col-md-12">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                          <span class="sr-only">Toggle navigation</span>
+                          <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="/">SeriesPlus</a>
+                      </div>
+                        <div class="collapse navbar-collapse main-nav" id="navigation">
+                            <ul class="nav navbar-nav navbar-left">
+                                <li><a class="m_user" href="/user">User</a></li>
+                                <li><a class="m_main" href="/">Inicio</a></li>
+                                <li><a class="m_serie" href="/series">Series</a></li>
+                                <li><a class="m_peli" href="/pelis">Pelis</a></li>
+                                <li><a class="open_bar" href="/salir">Salir</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <form class="search" method="post" action="/busqueda"/>
+                                        <input type="text" placeholder="Buscar..." name="busqueda" size="20"/>
+                                        <input type="submit" value="Buscar"/>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+
+                </div>
+                <div class="loading_bar"></div>
+            </div>
+        </nav>
+        <div class="col-md-12 contenido">
