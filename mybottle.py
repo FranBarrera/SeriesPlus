@@ -3,7 +3,7 @@ import json
 import os
 from bottle import route, run, template, get, post, request, response, redirect, default_app, static_file, TEMPLATE_PATH
 from funciones import fuser_token
-from funciones import fseriesfollowing,full_info,fbusqueda
+from funciones import fseriesfollowing,full_info,fbusqueda,fusermedia_all
 
 @get('/auth')
 def auth_reload():
@@ -20,10 +20,31 @@ def auth_reload():
 def server_static(filename):
   return static_file(filename, root='./static')
 
+@get('/series')
+def le_series():
+    return template('header.tpl',username=request.get_cookie("user")),template('tseries.tpl',data_raw=fusermedia_all(request.get_cookie("user_token")))
+
+@post('/series')
+def le_series():
+    return template('tseries.tpl',data_raw=fusermedia_all(request.get_cookie("user_token")))
+
+@get('/pelis')
+def le_series():
+    return template('header.tpl',username=request.get_cookie("user")),template('tpelis.tpl',data_raw=fusermedia_all(request.get_cookie("user_token")))
+
+@post('/pelis')
+def le_series():
+    return template('tpelis.tpl',data_raw=fusermedia_all(request.get_cookie("user_token")))
+
 @post('/busqueda')
 def le_busqueda():
     v_busqueda = request.forms.get('busqueda')
     return template('header.tpl'),template('busqueda.tpl',data_raw=fbusqueda(v_busqueda)),template('footer.tpl')
+
+@get('/ep/:idm')
+def le_episode(idm):
+    return template('episode.tpl',data_raw=episode(request.get_cookie("user_token"),idm,mediaType))
+
 
 @get('/tv/:idm')
 def le_pelicula(idm):
@@ -48,6 +69,13 @@ def le_main():
 def le_serie(idm):
     mediaType = 1
     return template('header.tpl'),template('serie.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl')
+
+@route('/salir')
+def basic_liad():
+    response.set_header('Set-Cookie', 'user=')
+    response.set_header('Set-Cookie', 'user_token=')
+    return redirect('/')
+
 
 @get('/') # or @route('/')
 def login():

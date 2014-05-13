@@ -30,12 +30,35 @@ def full_info(user_token,idm,mediaType):
 	jresp = json.loads(r_sf.text,object_pairs_hook=OrderedDict)
 	return jresp
 
+def episode(user_token,idm,mediaType):
+	q_sf = {'auth_token':auth_token,'user_token':user_token,'idm':idm,'mediaType':mediaType}
+	r_sf = requests.get('http://api.series.ly/v2/media/episode/links',params=q_sf)
+	jresp = json.loads(r_sf.text, object_pairs_hook=OrderedDict)
+	try:
+		direct = len(jresp['direct_download'])
+	except KeyError:
+		direct = 0
+	try:
+		online = len(jresp['streaming'])
+	except KeyError:
+		online = 0
+		
+	servers = {'online':online, 'direct':direct,'data':jresp}
+	
+	return servers
+
 def fbusqueda(v_busqueda):
 	q_sf = {'auth_token':auth_token,'q':v_busqueda}
 	r_sf = requests.get('http://api.series.ly/v2/search',params=q_sf)
 	jresp = json.loads(r_sf.text)
 	print jresp
 	return jresp
+
+def fusermedia_all(user_token):
+	q_sf = {'auth_token':auth_token,'user_token':user_token}
+ 	r_sf = requests.get('http://api.series.ly/v2/user/media/',params=q_sf)
+ 	jresp = json.loads(r_sf.text, object_pairs_hook=OrderedDict)
+ 	return jresp
 
 fichero.close()
 
