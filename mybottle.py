@@ -43,6 +43,7 @@ def le_busqueda():
 
 @get('/ep/:idm')
 def le_episode(idm):
+    mediaType = 5
     return template('episode.tpl',data_raw=episode(request.get_cookie("user_token"),idm,mediaType))
 
 @get('/go/:idv')
