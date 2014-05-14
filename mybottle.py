@@ -3,7 +3,7 @@ import json
 import os
 from bottle import route, run, template, get, post, request, response, redirect, default_app, static_file, TEMPLATE_PATH
 from funciones import fuser_token
-from funciones import fseriesfollowing,full_info,fbusqueda,fusermedia_all
+from funciones import fseriesfollowing,full_info,fbusqueda,fusermedia_all,episode,get_link
 
 @get('/auth')
 def auth_reload():
@@ -45,6 +45,9 @@ def le_busqueda():
 def le_episode(idm):
     return template('episode.tpl',data_raw=episode(request.get_cookie("user_token"),idm,mediaType))
 
+@get('/go/:idv')
+def le_link(idv):
+    return template('golink.tpl',data_raw=get_link(request.get_cookie("user_token"),idv))  
 
 @get('/tv/:idm')
 def le_pelicula(idm):

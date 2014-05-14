@@ -17,6 +17,9 @@ def fuser_token(username, password):
 		token = jresp['user_token']
 		return token
 
+def get_link(user_token,idv):
+	r_sf = ('http://api.series.ly/v2/media/link/go/'+idv+'/?auth_token='+auth_token+'&user_token='+user_token)
+	return r_sf
 
 def fseriesfollowing(user_token):
  	q_sf = {'auth_token':auth_token,'user_token':user_token}
