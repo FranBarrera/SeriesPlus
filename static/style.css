@@ -173,12 +173,12 @@ body .col-md-12 ul.table li a span.Baja {
 /* line 171, ../sass/style.scss */
 body .col-md-12 .show_caratulas {
   padding-right: 0;
-  overflow: auto;
+  overflow: none;
 }
 /* line 174, ../sass/style.scss */
 body .col-md-12 .show_caratulas .col-md-2 {
   display: block;
-  overflow: auto;
+  overflow: none;
 }
 /* line 177, ../sass/style.scss */
 body .col-md-12 .show_caratulas .col-md-2 .caratula {
@@ -248,7 +248,7 @@ body .col-md-12 .show_caratulas .col-md-2 .caratula .leyenda .rate:hover .rate_r
 body .col-md-12 .show_caratulas .col-md-2 .caratula .leyenda .info {
   position: absolute;
   bottom: 25px;
-  width: 100%;
+  width: 155px;
   padding: 0 10px;
   color: white;
 }
