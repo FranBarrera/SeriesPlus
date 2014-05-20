@@ -60,10 +60,15 @@ def le_pelicula(idm):
     mediaType = 3
     return template('header.tpl'),template('docus.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl')
 
-@get('/peliculas/:idm')
+@get('/peli/:idm')
 def le_pelicula(idm):
     mediaType = 2
     return template('header.tpl'),template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl') 
+
+@post('/peli/:idm')
+def le_pelicula(idm):
+    mediaType = 2
+    return template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))  
 
 @get('/main') # or @route('/login')
 def le_main():
@@ -73,6 +78,12 @@ def le_main():
 def le_serie(idm):
     mediaType = 1
     return template('header.tpl'),template('serie.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl')
+
+@post('/serie/:idm')
+def le_serie(idm):
+    mediaType = 1
+    return template('serie.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))
+
 
 @route('/salir')
 def basic_liad():

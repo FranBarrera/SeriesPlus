@@ -30,3 +30,27 @@
 %else:
 	<h1>ERROR</h1>
 %end
+<div class="episode_bar"></div>
+<div class="fadeweb"></div>
+<script>
+	
+		$('title').html('SeriesPlus - {{data_raw['name']}}');
+		$('.m_serie').addClass('active');
+		
+		$('.open_bar').on('click', function(e){
+			e.preventDefault();
+			$('body').css('overflow', 'hidden');
+			$('.episode_bar').css('overflow', 'auto').scrollTop(0);
+			$('.fadeweb').fadeIn();
+			$.get($(this).attr('href'),function(data){
+				$('.episode_bar').html(data).css('right',0);
+			});
+		});
+		
+		$('.fadeweb').on('click', function(e){
+			$(this).fadeOut();
+			$('.episode_bar').css('right','');
+			$('body').css('overflow', '');
+		});
+
+</script>

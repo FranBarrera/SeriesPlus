@@ -17,7 +17,70 @@
         <script src="//use.edgefonts.net/lato:n1,i1,n3,i3,n4,i4,n7,i7,n9,i9.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
          <link href="/static/style.css" rel="stylesheet">
-
+        <script>
+            $(document).on('ready', function(){
+                $(document).on('click', 'a:not(.open_bar, .open_link)' , function(e){
+                    e.preventDefault();
+                    
+                    $('.navbar-nav a').removeClass('active');
+                    $(this).addClass('active');
+                    
+                    if($(this).hasClass('navbar-brand')){
+                        $('.m_main').addClass('active');
+                    }
+                    
+                    $('.loading_bar').css({'width': '0%','opacity':1}).show();
+                    $('.loading_bar').stop().animate({'width':'40%'},500);
+                    
+                    history.pushState(null, null, $(this).attr('href'));
+                    $('.contenido').animate({'opacity': 0.3},700);
+                    
+                    $.post($(this).attr('href'), function(data){
+                        $('.loading_bar').stop().animate({'width':'80%'},500);
+                        setTimeout(function(){
+                            $('.loading_bar').stop().animate({'width':'100%'},500).fadeOut();
+                            $('.contenido').html(data).animate({'opacity': 1},350);
+                        },700);
+                    });
+                });
+                
+                $(document).on('submit', 'form.search' , function(e){
+                    e.preventDefault();
+                    
+                    $busqueda_text = $('form.search input[type=text]').val();
+                    
+                    $('.loading_bar').css({'width': '0%','opacity':1}).show();
+                    $('.loading_bar').stop().animate({'width':'40%'},500);
+                    
+                    history.pushState(null, null, '/busqueda');
+                    $('.contenido').animate({'opacity': 0.3},700);
+                    
+                    $.post($(this).attr('action'), {'busqueda': $busqueda_text} ,function(data){
+                        $('.loading_bar').stop().animate({'width':'80%'},500);
+                        setTimeout(function(){
+                            $('.loading_bar').stop().animate({'width':'100%'},500).fadeOut();
+                            $('.contenido').html(data).animate({'opacity': 1},350);
+                        },700);
+                    });
+                });
+                
+                window.addEventListener('popstate', function(event){
+                    $('.loading_bar').css({'width': '0%','opacity':1}).show();
+                    $('.loading_bar').stop().animate({'width':'40%'},500);
+                    
+                    $('.contenido').animate({'opacity': 0.3},700);
+                    
+                    $.post(document.location, function(data){
+                        $('.loading_bar').stop().animate({'width':'80%'},500);
+                        setTimeout(function(){
+                            $('.loading_bar').stop().animate({'width':'100%'},500).fadeOut()
+                            $('.contenido').html(data).animate({'opacity': 1},350);
+                        },700);
+                    });
+                });
+            });
+            
+        </script>
         
     </head>
 
