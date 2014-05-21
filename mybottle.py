@@ -74,6 +74,10 @@ def le_pelicula(idm):
 def le_main():
     return template('header.tpl',username=request.get_cookie("user")),template('template.tpl',data_raw=fseriesfollowing(request.get_cookie("user_token"))),template('footer.tpl')
 
+@post('/main')
+def le_main():
+    return template('template.tpl',data_raw=fseriesfollowing(request.get_cookie("user_token")))
+
 @get('/serie/:idm')
 def le_serie(idm):
     mediaType = 1
@@ -95,7 +99,7 @@ def basic_liad():
 @get('/') # or @route('/')
 def login():
     if request.get_cookie("user_token"):
-        return redirect('/main')
+        return template('header.tpl',username=request.get_cookie("user")),template('template.tpl',data_raw=fseriesfollowing(request.get_cookie("user_token")))
     else:
         return template('login.tpl')
 
@@ -103,7 +107,7 @@ def login():
 @post('/') # or @route('/', method='POST')
 def do_login():
     if request.get_cookie("user_token"):
-        return redirect('/main')
+        return template('template.tpl',data_raw=fseriesfollowing(request.get_cookie("user_token")))
     else:
         username = request.forms.get('username')
         password = request.forms.get('password')

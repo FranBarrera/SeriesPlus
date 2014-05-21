@@ -18,8 +18,7 @@
 					%tipo2 = 'Programas de televisión'
 				%end
 			%end
-			<h2> {{tipo2}} </h2>
-			<ul>
+			<h1> {{tipo2}} </h1>
 				<div class="col-md-12 show_caratulas">
 				%for media in data_raw[data]:
 					<a href="/{{tipo}}/{{media['idm']}}" class="col-md-2">
@@ -31,7 +30,7 @@
 						</div>
 					</a>
 				%end
-			</ul>
+				</div>
 		%end
 	%end
 %end
