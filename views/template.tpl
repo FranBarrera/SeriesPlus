@@ -8,7 +8,7 @@
 					%tipo = 'serie'
 					%tipo2 = 'Series'
 				%elif media['mediaType'] == 2:
-					%tipo = 'peliculas'
+					%tipo = 'peli'
 					%tipo2 = 'Peliculas pendientes'
 				%elif media['mediaType'] == 3:
 					%tipo = 'docus'
