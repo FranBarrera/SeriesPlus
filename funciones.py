@@ -24,7 +24,7 @@ def get_link(user_token,idv):
 def fseriesfollowing(user_token):
  	q_sf = {'auth_token':auth_token,'user_token':user_token}
  	r_sf = requests.get('http://api.series.ly/v2/user/media/pending',params=q_sf)
- 	jresp = json.loads(r_sf.text)
+ 	jresp = json.loads(r_sf.text,object_pairs_hook=OrderedDict)
  	return jresp
 
 def full_info(user_token,idm,mediaType):
