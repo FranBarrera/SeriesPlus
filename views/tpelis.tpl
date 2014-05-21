@@ -19,9 +19,9 @@
 					%if media['mediaType']==2 or media['mediaType']==3:
 						<a href="/{{tipo}}/{{media['idm']}}" class="col-md-2">
 							<div class="caratula">
-								<div class="leyenda">
+								<span class="leyenda">
 									<div class="info">{{media['name']}}<br>{{media['year']}}</div>
-								</div>
+								</span>
 								<img src="{{media['img']}}"/>
 							</div>
 						</a>
