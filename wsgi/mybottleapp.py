@@ -15,7 +15,7 @@ def auth_reload():
     jtemp = json.loads(r.text)
     auth = jtemp["auth_token"]
     fichero.write(auth)
-
+ 
 @route('/static/<filename>')
 def server_static(filename):
   return static_file(filename, root='./static')
