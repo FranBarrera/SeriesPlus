@@ -9,3 +9,7 @@
 			<p class="detail">{{data_raw['plot']}}</p>
 		</div>
 	%end
+<script>
+	$('title').html('SeriesPlus - {{data_raw['name']}}');
+	$('.m_peli').addClass('active');
+</script>

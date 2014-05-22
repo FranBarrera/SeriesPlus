@@ -32,3 +32,6 @@
 		%end
 	%end
 %end
+<script>
+	$('title').html('SeriesPlus - Series y TVShows');
+</script>
