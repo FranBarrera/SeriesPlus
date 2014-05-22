@@ -34,5 +34,9 @@
 		%end
 	%end
 %end
-
-
+<script>
+	$(document).on('ready', function(){
+		$('title').html('SeriesPlus - Inicio');
+		$('.m_main').addClass('active');
+	});
+</script>
