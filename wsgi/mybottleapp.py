@@ -63,12 +63,12 @@ def le_pelicula(idm):
 @get('/peli/:idm')
 def le_pelicula(idm):
     mediaType = 2
-    return template('header.tpl'),template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl') 
+    return template('header.tpl'),template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl'),template('episode.tpl',data_raw=episode(request.get_cookie("user_token"),idm,mediaType))
 
 @post('/peli/:idm')
 def le_pelicula(idm):
     mediaType = 2
-    return template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType))  
+    return template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl'),template('episode.tpl',data_raw=episode(request.get_cookie("user_token"),idm,mediaType))
 
 @get('/main') # or @route('/login')
 def le_main():
