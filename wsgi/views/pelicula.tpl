@@ -1,4 +1,5 @@
 	%if data_raw['error']<1:
+
 		<div class="col-md-2 poster">
 			<img src="{{data_raw['poster']['large']}}">
 		</div>
@@ -7,9 +8,5 @@
 			<h3>Nota: {{data_raw['rating']}} - Año: {{data_raw['year']}}</h3>
 			<h3>Sinopsis:</h3>
 			<p class="detail">{{data_raw['plot']}}</p>
-		</div>
+
 	%end
-<script>
-	$('title').html('SeriesPlus - {{data_raw['name']}}');
-	$('.m_peli').addClass('active');
-</script>

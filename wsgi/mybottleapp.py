@@ -53,12 +53,23 @@ def le_link(idv):
 @get('/tv/:idm')
 def le_pelicula(idm):
     mediaType = 4
-    return template('header.tpl'),template('tv.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl')
+    return template('header.tpl'),template('serie.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl')
+
+@post('/tv/:idm')
+def le_pelicula(idm):
+    mediaType = 4
+    return template('serie.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl')
+
 
 @get('/docus/:idm')
 def le_pelicula(idm):
     mediaType = 3
-    return template('header.tpl'),template('docus.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('footer.tpl')
+    return template('header.tpl',username=request.get_cookie("user")),template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('episode.tpl',data_raw=episode(request.get_cookie("user_token"),idm,mediaType))
+
+@post('/docus/:idm')
+def le_pelicula(idm):
+    mediaType = 3
+    return template('pelicula.tpl',data_raw=full_info(request.get_cookie("user_token"),idm,mediaType)),template('episode.tpl',data_raw=episode(request.get_cookie("user_token"),idm,mediaType))
 
 @get('/peli/:idm')
 def le_pelicula(idm):
