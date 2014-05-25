@@ -14,7 +14,7 @@
 				%tipo = 'tv'
 			%end
 			<div class="col-md-2">
-				<a href="{{tipo}}/{{media['object']['idm']}}">
+				<a href="/{{tipo}}/{{media['object']['idm']}}">
 					<div class="caratula">
 						<div class="leyenda">
 							<div class="rate">
