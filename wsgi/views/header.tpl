@@ -97,7 +97,6 @@
                       </div>
                         <div class="collapse navbar-collapse main-nav" id="navigation">
                             <ul class="nav navbar-nav navbar-left">
-                                <li><a class="m_user" href="/user">User</a></li>
                                 <li><a class="m_main" href="/">Inicio</a></li>
                                 <li><a class="m_serie" href="/series">Series</a></li>
                                 <li><a class="m_peli" href="/pelis">Pelis</a></li>
