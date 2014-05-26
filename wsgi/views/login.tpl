@@ -23,8 +23,8 @@
         <div class="row">
           <div class="col-md-4 col-md-offset-4">
                 <form action="/" method="post">
-                    <div><span>Username:</span><input name="username" placeholder="Usuario" type="text" /></div>
-                    <div><span>Password:</span><input name="password" placeholder="Contraseña" type="password" /></div>
+                    <div><span>Usuario:</span><input name="username" placeholder="Usuario" type="text" /></div>
+                    <div><span>Contraseña:</span><input name="password" placeholder="Contraseña" type="password" /></div>
                     <input value="Iniciar sesión" class="btn btn-success" type="submit" />
                 </form>
             </div>
