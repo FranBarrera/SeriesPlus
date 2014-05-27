@@ -75,7 +75,8 @@ body p{
   text-shadow: none;
   text-align: center;
 }
-body a{
+body a,body a:hover{
+  display: block;
   text-decoration: none;
   color: #FFF;
   font-weight: 400;
