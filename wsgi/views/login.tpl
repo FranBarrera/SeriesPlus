@@ -27,6 +27,9 @@
                     <div><span>Contraseña:</span><input name="password" placeholder="Contraseña" type="password" /></div>
                     <input value="Iniciar sesión" class="btn btn-success" type="submit" />
                 </form>
+                <p> Inicia sesión con tu cuenta de Series.ly </p>
+                <a href="https://twitter.com/FranBarrera6">@FranBarrera6</a>
             </div>
+
     </body>
 </html>

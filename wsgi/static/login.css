@@ -66,3 +66,20 @@ body form input[type=text], body form input[type=password] {
   color: grey;
   font-weight: 300;
 }
+
+body p{
+  margin-top: 25px;
+  color: #FFF;
+  font-weight: 400;
+  font-size: 15px;
+  text-shadow: none;
+  text-align: center;
+}
+body a{
+  text-decoration: none;
+  color: #FFF;
+  font-weight: 400;
+  font-size: 15px;
+  text-shadow: none;
+  text-align: center;
+}
