@@ -2,8 +2,7 @@ import requests
 import json
 import os
 from bottle import route, run, template, get, post, request, response, redirect, default_app, static_file, TEMPLATE_PATH
-from funciones import fuser_token
-from funciones import fseriesfollowing,full_info,fbusqueda,fusermedia_all,episode,get_link
+from funciones import fseriesfollowing,full_info,fbusqueda,fusermedia_all,episode,get_link,fmostseen,fuser_token
 
 @get('/auth')
 def auth_reload():
@@ -22,11 +21,11 @@ def server_static(filename):
 
 @get('/series')
 def le_series():
-    return template('header.tpl',username=request.get_cookie("user")),template('tseries.tpl',data_raw=fusermedia_all(request.get_cookie("user_token")))
+    return template('header.tpl',username=request.get_cookie("user")),template('tseries2.tpl',data_raw=fmostseen())
 
 @post('/series')
 def le_series():
-    return template('tseries.tpl',data_raw=fusermedia_all(request.get_cookie("user_token")))
+    return template('tseries2.tpl',data_raw=fmostseen())
 
 @get('/pelis')
 def le_series():

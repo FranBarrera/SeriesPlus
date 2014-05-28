@@ -63,7 +63,7 @@ def fusermedia_all(user_token):
  	jresp = json.loads(r_sf.text, object_pairs_hook=OrderedDict)
  	return jresp
 
-def fmost_seen():
+def fmostseen():
 	q_sf = {'auth_token':auth_token}
  	r_sf = requests.get('http://api.series.ly/v2/media/most_seen/',params=q_sf)
  	jresp = json.loads(r_sf.text, object_pairs_hook=OrderedDict)
