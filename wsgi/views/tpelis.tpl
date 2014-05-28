@@ -6,10 +6,10 @@
 			%for media in data_raw[data]:
 				%if media['mediaType'] == 2:
 					%tipo = 'peli'
-					%tipo2 = 'Películas'
+					%tipo2 = 'Películas Populares'
 				%elif media['mediaType'] == 3:
 					%tipo = 'doc'
-					%tipo2 = 'Documentales'
+					%tipo2 = 'Documentales Populares'
 				%end
 			%end
 			%if tipo2:

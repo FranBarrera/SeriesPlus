@@ -29,11 +29,11 @@ def le_series():
 
 @get('/pelis')
 def le_series():
-    return template('header.tpl',username=request.get_cookie("user")),template('tpelis.tpl',data_raw=fusermedia_all(request.get_cookie("user_token")))
+    return template('header.tpl',username=request.get_cookie("user")),template('tpelis.tpl',data_raw=fmostseen())
 
 @post('/pelis')
 def le_series():
-    return template('tpelis.tpl',data_raw=fusermedia_all(request.get_cookie("user_token")))
+    return template('tpelis.tpl',data_raw=fmostseen())
 
 @post('/busqueda')
 def le_busqueda():
