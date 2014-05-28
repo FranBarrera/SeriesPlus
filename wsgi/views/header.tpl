@@ -20,7 +20,7 @@
         <script>
 
             $('nav a').on('click', function(e){
-            $('.fadeweb').fadeOut();
+            $(.fadeweb).fadeOut();
             $('.episode_bar').css('right','');
             $('body').css('overflow', '');
             });
