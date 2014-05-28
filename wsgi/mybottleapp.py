@@ -21,7 +21,7 @@ def server_static(filename):
 
 @get('/series')
 def le_series():
-    return template('header.tpl',username=request.get_cookie("user")),template('tseries2.tpl',data_raw=fmostseen())
+    return template('header.tpl',username=request.get_cookie("user")),template('tseries.tpl',data_raw=fmostseen())
 
 @post('/series')
 def le_series():
