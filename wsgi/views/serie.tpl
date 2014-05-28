@@ -43,10 +43,16 @@
 			});
 		});
 		
-		$('.fadeweb').on('click', function(e){
+        $('nav a').on('click', function(e){
+            $('.fadeweb').fadeOut();
+            $('.episode_bar').css('right','');
+            $('body').css('overflow', '');
+        });
+
+        $('.fadeweb').on('click', function(e){
 			$(this).fadeOut();
 			$('.episode_bar').css('right','');
 			$('body').css('overflow', '');
 		});
-
+		
 </script>
