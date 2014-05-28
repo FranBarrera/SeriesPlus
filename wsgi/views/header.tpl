@@ -18,7 +18,7 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
          <link href="/static/style.css" rel="stylesheet">
         <script>
-        
+         
             $('nav a').on('click', function(e){
             $(.fadeweb).fadeOut();
             $('.episode_bar').css('right','');
