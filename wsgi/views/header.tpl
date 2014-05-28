@@ -106,7 +106,7 @@
                             <ul class="nav navbar-nav navbar-left">
                                 <li><a class="m_main" href="/">Inicio</a></li>
                                 <li><a class="m_serie" href="/series">Series</a></li>
-                                <li><a class="m_peli" href="/pelis">Pelis</a></li>
+                                <li><a class="m_peli" href="/pelis">Peliculas</a></li>
                                 <li><a class="open_bar" href="/salir">Salir</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
