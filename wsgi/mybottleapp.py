@@ -25,7 +25,7 @@ def le_series():
 
 @post('/series')
 def le_series():
-    return template('tseries2.tpl',data_raw=fmostseen())
+    return template('tseries.tpl',data_raw=fmostseen())
 
 @get('/pelis')
 def le_series():
