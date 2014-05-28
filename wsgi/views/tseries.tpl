@@ -6,10 +6,10 @@
 			%for media in data_raw[data]:
 				%if media['mediaType'] == 1:
 					%tipo = 'serie'
-					%tipo2 = 'Series'
+					%tipo2 = 'Series Populares'
 				%elif media['mediaType'] == 4:
 					%tipo = 'tv'
-					%tipo2 = 'TVShows'
+					%tipo2 = 'TVShows Populares'
 				%end
 			%end
 			<h1> {{tipo2}} </h1>
