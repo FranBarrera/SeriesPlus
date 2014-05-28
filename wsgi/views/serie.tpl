@@ -15,11 +15,7 @@
 				<ul class="table">
 				%for episodes in data_raw['seasons_episodes'][seasons]:
 					<li><a class="open_bar" href="/ep/{{episodes['idm']}}">
-						%if episodes['watched']:
-							<i class="fa fa-circle-o"></i>
-						%else:
-							<i class="fa fa-circle"></i>
-						%end
+						
 						{{episodes['episode']}} - {{episodes['name']}}</a></li>
 				%end
 				</ul>
