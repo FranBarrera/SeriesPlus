@@ -18,6 +18,12 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
          <link href="/static/style.css" rel="stylesheet">
         <script>
+            $('nav a').on('click', function(e){
+            $(.fadeweb).fadeOut();
+            $('.episode_bar').css('right','');
+            $('body').css('overflow', '');
+            });
+
             $(document).on('ready', function(){
                 $(document).on('click', 'a:not(.open_bar, .open_link)' , function(e){
                     e.preventDefault();
